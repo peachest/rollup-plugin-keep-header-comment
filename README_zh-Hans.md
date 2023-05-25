@@ -20,11 +20,11 @@
     ·
     <a href="README_zh-Hans.md">简体中文</a>
 </p>
-A rollup plugin to keep the first comment or one that match the provided pattern from the source code at the start of the bundle file.
+一个 rollup 插件，将源代码文件中第一个或符合指定模式的注释放置到输出文件的开头。
 
-When I try to use tsdoc and  `@microsoft/api-extractor`、`@microsoft/api-documenter` to generate docs for my project without `--local` flag，I got  `Warning: dist/index.d.ts:4:1 - (ae-misplaced-package-tag) The @packageDocumentation comment must appear at the top of entry point *.d.ts file`. However rollup  will put the import statements at the start of the file no matter where I place the package documentation comment.
+我在使用 tsdoc 搭配  `@microsoft/api-extractor`、`@microsoft/api-documenter` 为我的项目自动生成 API 文档时，如果不使用  `--local` 参数，会得到 `Warning: dist/index.d.ts:4:1 - (ae-misplaced-package-tag) The @packageDocumentation comment must appear at the top of entry point *.d.ts file` 。但是无论怎么调整源文件中的注释位置， rollup 都会将 import 语句自动放到文件开头。
 
-So I develop this plugin fot those who want to use rollup and tsdoc, you can now put this plugin after the one that generate `.d.ts` file in rollup config. See example in [Usage](#Usage) or [Doc](markdown/rollup-plugin-keep-header-comment.export_default.md).
+因此开发了这个插件搭配 rollup 与 tsdoc 使用。只需要将本插件放在生成声明文件的 rollup 插件配置的最后即可。示例代码见 [Usage](#Usage) 或者 [Doc](markdown/rollup-plugin-keep-header-comment.export_default.md).
 
 ## Install
 
