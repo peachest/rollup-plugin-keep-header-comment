@@ -8,7 +8,6 @@ import path from "path";
 import * as url from "url";
 import fs from "fs-extra"
 import externals from "rollup-plugin-node-externals"
-import {visualizer} from "rollup-plugin-visualizer";
 import keepHeader from "./dist/index.mjs"
 
 
@@ -78,10 +77,6 @@ export default [
             },
             plugins:[
                 ...basePlugins,
-                ...["sunburst", "treemap", "network", "raw-data"].map(template => visualizer({
-                    filename: resolve(path.join("stat", `${format}.stat.${template}${template === "raw-data" ? "raw" : ".html"}`)),
-                    template
-                })),
             ]
         }
     }),
